@@ -92,9 +92,17 @@ img {
     float: right;
     display: block;
   }
-}
-
-@media screen and (max-width: 768px) {
+  main .bground .content .modal-body form#form .container  {
+    display: block;
+  }
+  main .bground .content .modal-body form#form .container section:nth-child(1) {
+    border-right: 0px solid #fff;
+    padding-right: 0px;
+    margin-right: 0px;
+  }
+  main .bground .content .modal-body form#form .container section:nth-child(2) {
+    width: 100%;
+  }
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -107,8 +115,6 @@ img {
     text-align: left;
   }
 }
-
-
 
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}

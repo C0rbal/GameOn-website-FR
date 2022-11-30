@@ -44,6 +44,7 @@ let isQuantityValid = false;
 let isLocationValid = false;
 let isCguValid = false;
 
+const validationText = document.querySelector(".validation-text");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -58,12 +59,15 @@ modalSpan.forEach((span) => span.addEventListener("click", closeModal));
 
 function closeModal() {
   modalbg.style.display = "none";
+  validationText.style.display = "none";
 }
 
 // close modal event outside the form
 window.onclick = function(event) {
   if (event.target == modalbg) {
     modalbg.style.display = "none";
+  } else if (event.target == validationText) {
+    validationText.style.display = "none";
   }
 }
 
@@ -163,5 +167,6 @@ form.addEventListener("submit", function(e) {
 
 //
 function validationMessage() {
-  closeModal();
+  modalbg.style.display = "none";
+  validationText.style.display = "block";
 }

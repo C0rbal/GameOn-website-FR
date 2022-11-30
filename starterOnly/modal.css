@@ -118,6 +118,12 @@ img {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  main .hero-section .hero-content .hero-headline {
+    font-size: 5rem;
+  }
+}
+
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -528,6 +534,7 @@ input.text-control:focus {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;

@@ -80,9 +80,9 @@ form.addEventListener("submit", function(e) {
   e.preventDefault();
 
   // Firstname input 
-  if (firstNameInput.value.trim().length < 1) {
+  if (firstNameInput.value.trim().length < 2) {
     firstNameInput.style.border = "2px solid red";
-    firstNameInputError.innerText = "Vous devez saisir au moins 2 caractères.";
+    firstNameInputError.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
    } else if ( regexFirst.test(firstNameInput.value.trim()) == false) {
     firstNameInput.style.border = "2px solid red";
     firstNameInputError.textContent = "Veuillez vous assurer que le champ respecte les valeurs définies.";
@@ -95,7 +95,7 @@ form.addEventListener("submit", function(e) {
   // Lastname input 
   if (lastNameInput.value.trim().length < 2) {
     lastNameInput.style.border = "2px solid red";
-    lastNameInputError.textContent = "Vous devez saisir au moins 2 caractères.";
+    lastNameInputError.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
    } else if ( regexLast.test(lastNameInput.value.trim()) == false) {
     lastNameInput.style.border = "2px solid red";
     lastNameInputError.textContent = "Veuillez vous assurer que le champ respecte les valeurs définies.";

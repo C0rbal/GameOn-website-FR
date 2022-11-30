@@ -158,15 +158,21 @@ form.addEventListener("submit", function(e) {
     isCguValid = true;
   }
 
-  // Validation message
+  // Check the form
   if(isFirstValid && isLastValid && isEmailValid && isBirthdateValid && isQuantityValid && isLocationValid && isCguValid) {
     validationMessage();
   }
 
 });
 
-//
+// Validation message
 function validationMessage() {
   modalbg.style.display = "none";
   validationText.style.display = "block";
+
+  // reset the form
+  form.reset();
+
+  // refresh the page
+  location.reload();
 }

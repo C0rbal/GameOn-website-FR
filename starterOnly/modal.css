@@ -583,7 +583,7 @@ footer {
   }
 }
 
-/* Début changement formulaire */
+/* Début - Changement formulaire */
 .container {
   display: flex;
   justify-content: center;
@@ -598,7 +598,22 @@ footer {
 .container .form-organisation:nth-child(2) {
   width: 50%;
 }
-/* Fin changement formulaire */
+/* Fin - Changement formulaire */
+
+/* Début - Message de validation du formulaire */
+.validation-text {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+  text-align: center;
+}
+/* Fin - Message de validation du formulaire */
 
 @keyframes modalopen {
   from {

@@ -1,184 +1,267 @@
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Réservation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
+  </head>
 
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-const modalSpan = document.querySelectorAll(".close");
 
-const sendButton = document.getElementById('submit');
-const form = document.getElementById('form');
+  <body>
+    <div class="topnav" id="myTopnav">
+      <div class="header-logo">
+      <img alt="logo" src="Logo.png">
+      </div>
+      <div class="main-navbar">
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
 
-const firstNameInput = document.getElementById('first');
-const firstNameInputError = document.getElementById('error-first');
-const lastNameInput = document.getElementById('last');
-const lastNameInputError = document.getElementById('error-last');
-const emailInput = document.getElementById('email');
-const emailInputError = document.getElementById('error-email');
-const birthdateInput = document.getElementById('birthdate');
-const birthdateInputError = document.getElementById('error-birthdate');
-const quantityInput = document.getElementById('quantity');
-const quantityInputError = document.getElementById('error-quantity');
-const location1Input = document.getElementById('location1');
-const location2Input = document.getElementById('location2');
-const location3Input = document.getElementById('location3');
-const location4Input = document.getElementById('location4');
-const location5Input = document.getElementById('location5');
-const location6Input = document.getElementById('location6');
-const locationInputError = document.getElementById('error-location');
-const checkbox1Input = document.getElementById('checkbox1');
-const checkbox1InputError = document.getElementById('error-checkbox1');
+    <main>
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-headline">
+            Marathon national<br>
+            de jeux vidéos
+          </h1>
+          <p class="hero-text">
+            Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations… Places limitées !
+          </p>
+          <button class="btn-signup modal-btn">
+            je m'inscris
+          </button>
+        </div>
+        <div class="hero-img">
+          <img src="./bg_img.jpg" alt="img">
+        </div>
+        <button class="btn-signup modal-btn">
+          je m'inscris
+        </button>
+      </div>
 
-let isFirstValid = false;
-let isLastValid = false;
-let isEmailValid = false;
-let isBirthdateValid = false;
-let isQuantityValid = false;
-let isLocationValid = false;
-let isCguValid = false;
+      <div class="bground">
+        <div class="content">
 
-const validationText = document.querySelector(".validation-text");
+          <!-- Close the modal -->
+          <span class="close"></span>
 
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
-}
+          <div class="modal-body">
+            <form
+              id="form"
+              name="reserve"
+              action="#"
+            >
+            <!--  method="get"
+                  onsubmit="return validate();" -->
+            <!-- onfocus="function(this)" onblur -->
 
-// close modal event
-modalSpan.forEach((span) => span.addEventListener("click", closeModal));
 
-function closeModal() {
-  modalbg.style.display = "none";
-  validationText.style.display = "none";
-}
+            <div class="container">
+              <div class="form-organisation">
+              
+              <!-- Firstname input -->
+              <div class="formData">
+                <label for="first" class="id-player">Prénom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="first"
+                  name="first"
+                  autocomplete="on"
+                >
+                
+                <div class="error" id="error-first"></div>
+              </div>
+              
+              <!-- Lastname input -->
+              <div class="formData">
+                <label for="last" class="id-player">Nom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                  autocomplete="on"
+                >
+                <div class="error" id="error-last"></div>
+              </div>
+              
+              <!-- Email input -->
+              <div class="formData">
+                <label for="email" class="id-player">E-mail</label><br>
+                <input
+                  class="text-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="on"
+                >
+                <div class="error" id="error-email"></div>
+              </div>
 
-// close modal event outside the form
-window.onclick = function(event) {
-  if (event.target == modalbg) {
-    modalbg.style.display = "none";
-  } else if (event.target == validationText) {
-    validationText.style.display = "none";
-  }
-}
+              <!-- Birthdate input -->
+              <div class="formData">
+                <label for="birthdate" class="id-player">Date de naissance</label><br>
+                <input
+                  class="text-control"
+                  type="date"
+                  id="birthdate"
+                  name="birthdate"
+                  autocomplete="on"
+                >
+                <div class="error" id="error-birthdate"></div>
+              </div>
+              </div>
 
-// Registration form
+              <div class="form-organisation">
 
-// REGEX, expressions régulières
-const regexFirst = /^[a-zA-Z]+[a-zA-Z-]?[a-zA-Z]+$/;
-const regexLast = /^[a-zA-Z]+[a-zA-Z'-]?[a-zA-Z]+$/;
-const regexEmail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/;
-const regexBirthdate = /^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/;
-const regexQuantity = /^[0-9][0-9]?$/;
+              <!-- Quantity input -->
+              <div class="formData">
+                <label for="quantity" class="text-label">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <input type="number" class="text-control" id="quantity" name="quantity" value="0" min="0" max="99">
+              <div class="error" id="error-quantity"></div>
+              </div>
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
+              <!-- Location input -->
+              <p class="text-label">À quel tournoi souhaitez-vous participer cette année ?</p>
+              <div class="formData">
+                <input
+                  class="checkbox-input"
+                  type="radio"
+                  id="location1"
+                  name="location"
+                  value="New York"
+                >
+                <label class="checkbox-label" for="location1">
+                  <span class="checkbox-icon"></span>
+                  New York</label
+                >
+                <input
+                  class="checkbox-input"
+                  type="radio"
+                  id="location2"
+                  name="location"
+                  value="San Francisco"
+                >
+                <label class="checkbox-label" for="location2">
+                  <span class="checkbox-icon"></span>
+                  San Francisco</label
+                >
+                <input
+                  class="checkbox-input"
+                  type="radio"
+                  id="location3"
+                  name="location"
+                  value="Seattle"
+                >
+                <label class="checkbox-label" for="location3">
+                  <span class="checkbox-icon"></span>
+                  Seattle</label
+                >
+                <input
+                  class="checkbox-input"
+                  type="radio"
+                  id="location4"
+                  name="location"
+                  value="Chicago"
+                >
+                <label class="checkbox-label" for="location4">
+                  <span class="checkbox-icon"></span>
+                  Chicago</label
+                >
+                <input
+                  class="checkbox-input"
+                  type="radio"
+                  id="location5"
+                  name="location"
+                  value="Boston"
+                >
+                <label class="checkbox-label" for="location5">
+                  <span class="checkbox-icon"></span>
+                  Boston</label
+                >
+                <input
+                  class="checkbox-input"
+                  type="radio"
+                  id="location6"
+                  name="location"
+                  value="Portland"
+                >
+                <label class="checkbox-label" for="location6">
+                  <span class="checkbox-icon"></span>
+                  Portland</label
+                >
+              </div>
+              <div class="error" id="error-location"></div>
 
-  // Firstname input 
-  if (firstNameInput.value.trim().length < 2) {
-    firstNameInput.style.border = "2px solid red";
-    firstNameInputError.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-   } else if ( regexFirst.test(firstNameInput.value.trim()) == false) {
-    firstNameInput.style.border = "2px solid red";
-    firstNameInputError.textContent = "Veuillez vous assurer que le champ respecte les valeurs définies.";
-   } else {
-      firstNameInput.style.border = "2px solid green";
-      firstNameInputError.textContent = "";
-      isFirstValid = true;
-  }
+              <!-- Checkbox1 - Conditions input -->
+              <div class="formData checkbox-placement">
+                <input
+                  class="checkbox-input"
+                  type="checkbox"
+                  id="checkbox1"
+                >
+                <label class="checkbox2-label" for="checkbox1">
+                  <span class="checkbox-icon"></span>
+                  J'ai lu et accepté les <a href="#">conditions d'utilisation</a>.
+                </label>
+                <div class="error" id="error-checkbox1"></div>
 
-  // Lastname input 
-  if (lastNameInput.value.trim().length < 2) {
-    lastNameInput.style.border = "2px solid red";
-    lastNameInputError.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-   } else if ( regexLast.test(lastNameInput.value.trim()) == false) {
-    lastNameInput.style.border = "2px solid red";
-    lastNameInputError.textContent = "Veuillez vous assurer que le champ respecte les valeurs définies.";
-   } else {
-      lastNameInput.style.border = "2px solid green";
-      lastNameInputError.textContent = "";
-      isLastValid = true;
-  }
+                <!-- Checkbox2 - Newsletter input -->
+                <input class="checkbox-input" type="checkbox" id="checkbox2">
+                <label class="checkbox2-label" for="checkbox2">
+                  <span class="checkbox-icon"></span>
+                  Je souhaite être prévenu(e) des prochains évènements.
+                </label>
+              </div>
 
-  // Email input 
-  if (emailInput.value.trim().length < 1) {
-    emailInput.style.border = "2px solid red";
-    emailInputError.textContent = "Vous devez saisir au moins 2 caractères.";
-   } else if (regexEmail.test(emailInput.value.trim()) == false && (emailInput.indexOf("@")>=0) && (emailInput.indexOf(".")>=0)) {
-    emailInput.style.border = "2px solid red";
-    emailInputError.textContent = "Email non valide.";
-   } else {
-    emailInput.style.border = "2px solid green";
-    emailInputError.textContent = "";
-    isEmailValid = true;
-  }
+              <!-- Submit input -->
+              <input
+                class="btn-submit button"
+                type="submit"
+                id="submit"
+                value="C'est parti"
+              >
+              </div>
+            </div>
 
-  // Birthdate input 
-  if(regexBirthdate.test(birthdateInput.value.trim()) == false) {
-    birthdateInput.style.border = "2px solid red";
-    birthdateInputError.textContent = "Vous devez entrer votre date de naissance.";
-   } else {
-    birthdateInput.style.border = "2px solid green";
-    birthdateInputError.textContent = "";
-    isBirthdateValid = true;
-  }
+            </form>
+          </div>
+        </div>
+      </div>
 
-  // Quantity of events input 
-  if(regexQuantity.test(quantityInput.value.trim()) == false) {
-    quantityInput.style.border = "2px solid red";
-    quantityInputError.textContent = "Veuillez saisir une valeur numérique.";
-   } else {
-    quantityInput.style.border = "2px solid green";
-    quantityInputError.textContent = "";
-    isQuantityValid = true;
-  }
+      <!-- Début - Message de validation -->
+      <div class="validation-text">
+        <div class="content">
 
-  // Location of the future event input 
-  if(location1Input.checked || location2Input.checked || location3Input.checked || location4Input.checked || location5Input.checked || location6Input.checked) {
-    locationInputError.textContent = "";
-    isLocationValid = true;
-   } else {
-    locationInputError.textContent = "Vous devez choisir une option.";
-  }
+          <!-- Close the modal -->
+          <span class="close"></span>
 
-  // Conditions input 
-  if(checkbox1Input.checked == false) {
-    checkbox1InputError.textContent = "Vous devez vérifier que vous acceptez les termes et conditions.";
-   } else {
-    checkbox1InputError.textContent = "";
-    isCguValid = true;
-  }
+          <div class="modal-body">
+            <p>Merci !</p>
+            <p>Votre réservation a été reçue.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Fin - Message de validation -->
 
-  // Check the form
-  if(isFirstValid && isLastValid && isEmailValid && isBirthdateValid && isQuantityValid && isLocationValid && isCguValid) {
-    validationMessage();
-  }
-
-});
-
-// Validation message
-function validationMessage() {
-  modalbg.style.display = "none";
-  validationText.style.display = "block";
-
-  // reset the form
-  form.reset();
-
-  // refresh the page after 5 seconds
-  timeFunction();
-}
-
-function timeFunction() {
-  setTimeout(function(){
-    location.reload();
-  }, 5000);
-}
+    </main>
+    <footer>
+      <p class="copyrights">
+        Copyright 2014 - 2022, GameOn Inc.
+      </p>
+    </footer>
+    <script src="modal.js"></script>
+  </body>
+</html>

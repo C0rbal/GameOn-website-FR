@@ -1,44 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Réservation</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="modal.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
   </head>
-
-
-  <!--
-    TODO: Visualiser et tester l'interface utilisateur dans les dernières versions de Chrome et de Firefox
-    *
-    TODO: Les versions mobile et desktop. Corriger les erreurs d'affichage existantes.
-    *
-    TODO: Tester toutes les fonctionnalités des boutons et des entrées de formulaire (tester les valeurs correctes et incorrectes)
-    *
-  -->
 
 
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" />
-    </div>
-    <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
+      <img alt="logo" src="Logo.png">
+      </div>
+      <div class="main-navbar">
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
 
     <main>
@@ -56,7 +42,7 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./bg_img.jpg" alt="img">
         </div>
         <button class="btn-signup modal-btn">
           je m'inscris
@@ -70,12 +56,6 @@
           <span class="close"></span>
 
 
-          <!-- 
-
-          TODO: Après une validation réussie, inclure un message de confirmation de la soumission réussie pour l'utilisateur (ex. "Merci ! Votre réservation a été reçue.")
-          * À compléter
-          -->
-
           <div class="modal-body">
             <form
               id="form"
@@ -88,7 +68,7 @@
 
 
             <div class="container">
-              <section>
+              <div class="form-organisation">
               
               <!-- Firstname input -->
               <div class="formData">
@@ -99,7 +79,7 @@
                   id="first"
                   name="first"
                   autocomplete="on"
-                />
+                >
                 
                 <div class="error" id="error-first"></div>
               </div>
@@ -113,7 +93,7 @@
                   id="last"
                   name="last"
                   autocomplete="on"
-                />
+                >
                 <div class="error" id="error-last"></div>
               </div>
               
@@ -126,7 +106,7 @@
                   id="email"
                   name="email"
                   autocomplete="on"
-                />
+                >
                 <div class="error" id="error-email"></div>
               </div>
 
@@ -139,12 +119,12 @@
                   id="birthdate"
                   name="birthdate"
                   autocomplete="on"
-                />
+                >
                 <div class="error" id="error-birthdate"></div>
               </div>
-              </section>
+              </div>
 
-              <section>
+              <div class="form-organisation">
 
               <!-- Quantity input -->
               <div class="formData">
@@ -162,7 +142,7 @@
                   id="location1"
                   name="location"
                   value="New York"
-                />
+                >
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
                   New York</label
@@ -173,7 +153,7 @@
                   id="location2"
                   name="location"
                   value="San Francisco"
-                />
+                >
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
                   San Francisco</label
@@ -184,7 +164,7 @@
                   id="location3"
                   name="location"
                   value="Seattle"
-                />
+                >
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
                   Seattle</label
@@ -195,7 +175,7 @@
                   id="location4"
                   name="location"
                   value="Chicago"
-                />
+                >
                 <label class="checkbox-label" for="location4">
                   <span class="checkbox-icon"></span>
                   Chicago</label
@@ -206,7 +186,7 @@
                   id="location5"
                   name="location"
                   value="Boston"
-                />
+                >
                 <label class="checkbox-label" for="location5">
                   <span class="checkbox-icon"></span>
                   Boston</label
@@ -217,7 +197,7 @@
                   id="location6"
                   name="location"
                   value="Portland"
-                />
+                >
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland</label
@@ -231,7 +211,7 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                />
+                >
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les <a href="#">conditions d'utilisation</a>.
@@ -239,7 +219,7 @@
                 <div class="error" id="error-checkbox1"></div>
 
                 <!-- Checkbox2 - Newsletter input -->
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <input class="checkbox-input" type="checkbox" id="checkbox2">
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu(e) des prochains évènements.
@@ -252,8 +232,8 @@
                 type="submit"
                 id="submit"
                 value="C'est parti"
-              />
-              </section>
+              >
+              </div>
             </div>
 
             </form>

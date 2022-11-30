@@ -173,6 +173,13 @@ function validationMessage() {
   // reset the form
   form.reset();
 
-  // refresh the page
-  location.reload();
+  // refresh the form css
+  timeFunction();
+}
+
+// refresh the page after 5 seconds
+function timeFunction() {
+  setTimeout(function(){
+    location.reload();
+  }, 5000);
 }
